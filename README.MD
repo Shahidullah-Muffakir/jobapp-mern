@@ -2,7 +2,7 @@
 
 #### Track Your Job Search
 
-Project in Action - [Jobify](https://jobapp-mern.onrender.com/landing)
+ [Live Demo](https://jobapp-mern.onrender.com/landing)
 
 #### Support
 
