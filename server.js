@@ -2,9 +2,10 @@ import Express from "express";
 const app = Express();
 import morgan from "morgan";
 
-import { dirname, resolve } from "path";
-import path from "path";
-import { fileURLToPath } from "url";
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import path from 'path';
+
 
 import helmet from 'helmet';
 import xss from 'xss-clean';
@@ -32,7 +33,9 @@ import authenticateUser from "./middleware/auth.js";
 // ===================External Middlewares=================================================================================================================
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-app.use(Express.static(path.resolve(__dirname, "./client/build")));
+// app.use(Express.static(path.resolve(__dirname, "./client/build")));
+app.use(Express.static(path.resolve(__dirname, './client/build')));
+
 app.use(Express.json());
 app.use(helmet())
 app.use(xss())
