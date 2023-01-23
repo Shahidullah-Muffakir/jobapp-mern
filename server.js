@@ -54,8 +54,8 @@ app.get("/api/v1", (req, res) => {
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/jobs", authenticateUser, jobsRouter);
 
-app.get("*", (req, res) => {
-  res.sendFile(resolve.path(__dirname, "./client/build", "index.html"));
+app.get('*', function (request, response) {
+  response.sendFile(path.resolve(__dirname, './client/build', 'index.html'));
 });
 
 // ===================Internal Middlewares=================================================================================================================
