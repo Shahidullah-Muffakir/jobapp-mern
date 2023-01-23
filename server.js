@@ -1,5 +1,5 @@
-import Express from "express";
-const app = Express();
+import express from "express";
+const app = express();
 import morgan from "morgan";
 
 import { dirname } from 'path';
@@ -33,10 +33,11 @@ import authenticateUser from "./middleware/auth.js";
 // ===================External Middlewares=================================================================================================================
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-// app.use(Express.static(path.resolve(__dirname, "./client/build")));
-app.use(Express.static(path.resolve(__dirname, './client/build')));
 
-app.use(Express.json());
+// app.use(express.static(path.resolve(__dirname, "./client/build")));
+app.use(express.static(path.resolve(__dirname, './client/build')));
+
+app.use(express.json());
 app.use(helmet())
 app.use(xss())
 app.use(mongoSanitize())
