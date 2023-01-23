@@ -38,17 +38,20 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 app.use(express.static(path.resolve(__dirname, './client/build')));
 
 app.use(express.json());
-app.use(helmet())
-app.use(xss())
-app.use(mongoSanitize())
-app.use(morgan("dev"));
+app.use(helmet());
+app.use(xss());
+app.use(mongoSanitize());
+app.use(cookieParser());
 
+app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/jobs', authenticateUser, jobsRouter);
 
 // ===================Routes=================================================================================================================
 
 
 app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/jobs', authenticateUser, jobsRouter);
+
 
 // only when ready to deploy
 app.get('*', (req, res) => {
